@@ -25,9 +25,9 @@ export default function Home() {
       {/* Your page content goes here */}
       <div className="relative z-10 flex items-center justify-center h-full w-full flex-col mt-[-350px]">
         <h1 className="text-7xl sm:text-9xl font-bold title-font title-font-color stroke-text" >Moonveil</h1>
-        <div className={'w-10/12 md:w-1/2 max-w-[800px] bg-yellow h-1/2 rounded-4xl mt-10 flex flex-col items-center justify-center gap-6 p-8'}>
-          <div className={'title-font text-blue-950 font-bold text-5xl sm:text-6xl px-4 md:px-10'}>Welcome!</div>
-          <div className={'title-font text-blue-950 text-xl lg:text-2xl px-4 md:px-10'}>Moonveil is a dark fantasy village shrouded in mist and secrets.
+        <div className={'w-10/12 md:w-2/3 lg:w-1/2 max-w-[800px] bg-yellow h-auto rounded-4xl mt-10 flex flex-col items-center justify-center gap-6 p-8'}>
+          <div className={'title-font text-blue-950 font-bold  text-4xl sm:text-6xl px-4 md:px-10'}>Welcome!</div>
+          <div className={'title-font text-blue-950 md:text-xl px-4 md:px-10'}>Moonveil is a dark fantasy social game.
             When the moon rises, trust fades — and survival becomes a game of lies, deduction, and betrayal.
             <br />
             <br />
