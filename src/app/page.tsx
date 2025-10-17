@@ -34,7 +34,7 @@ export default function Home() {
         className="object-cover object-top dark:invert"
       />
 
-      <div className="relative h-[30vh] w-full z-10">
+      <div className="relative h-[30vh] sm:h-[35vh] md:h-[45vh] w-full z-10">
         <Image
           src="/wolfmoon.png"
           alt="Wolf howling at the moon"
@@ -45,10 +45,19 @@ export default function Home() {
       </div>
 
       {/* Your page content goes here */}
-      <div className="relative z-10 flex items-center justify-center h-full w-full flex-col mt-[-350px]">
-        <h1 className="text-7xl sm:text-9xl font-bold title-font title-font-color stroke-text" >Moonveil</h1>
-        <div className={'w-10/12 md:w-2/3 lg:w-1/2 max-w-[800px] bg-yellow h-1/2 rounded-4xl mt-10 flex flex-col items-center justify-center gap-6 p-8'}>
-          {renderCard()}
+      <div className="relative z-10 flex items-center justify-center h-full w-full flex-col mt-[-400px] sm:mt-[-370px] md:mt-[-320px]">
+        <h1 className="text-7xl sm:text-8xl md:text-9xl font-bold title-font title-font-color stroke-text" >Moonveil</h1>
+
+        <div className="relative w-[320px] h-[340px] sm:w-[420px] sm:h-[450px] md:w-[500px] md:h-[550px]">
+          <Image
+            src="/scroll.png"
+            alt="scroll"
+            fill
+            className="object-contain"
+          />
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 px-4 sm:px-10 w-full">
+            {renderCard()}
+          </div>
         </div>
       </div>
     </div>

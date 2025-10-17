@@ -3,3 +3,8 @@ export enum MainCardContent {
   Login = "LOG_IN",
   Signup = "SIGN_UP"
 }
+
+export enum CustomButtonVariants {
+  Solid = "SOLID",
+  Ghost = "GHOST"
+}
