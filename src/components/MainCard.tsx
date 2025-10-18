@@ -18,7 +18,7 @@ export default function MainCard({setCardContentAction}: MainCardProps) {
     <>
       <div className={'title-font text-blue-950 font-bold text-2xl sm:text-5xl px-4 md:px-10'}>Welcome!</div>
       <div className={'title-font text-blue-950 text-xs sm:text-base md:text-xl px-4 md:px-10'}>Moonveil is a dark fantasy social game.
-        When the moon rises, trust fades — and survival becomes a game of lies, deduction, and betrayal.
+        When the moon rises, trust fades.
         <br />
         <br />
         Each night, the villagers sleep uneasily as hidden werewolves stalk among them.</div>
