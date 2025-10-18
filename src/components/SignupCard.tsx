@@ -195,7 +195,7 @@ export default function SignupCard({ setCardContentAction }: SignupCardProps) {
         <CustomButton
           variant={CustomButtonVariants.Solid}
           onClick={handleSignup}
-          text="Create Account"
+          text="Sign up"
         />
         <CustomButton
           variant={CustomButtonVariants.Ghost}

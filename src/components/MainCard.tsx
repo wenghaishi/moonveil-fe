@@ -1,7 +1,6 @@
 'use client'
 
-import Link from "next/link";
-import {MainCardContent} from "@/enums";
+import {CustomButtonVariants, MainCardContent} from "@/enums";
 import React from "react";
 import CustomButton from "@/components/CustomButton";
 
@@ -11,9 +10,10 @@ type MainCardProps = {
 
 export default function MainCard({setCardContentAction}: MainCardProps) {
 
-  const handleClick =() => {
-    setCardContentAction(MainCardContent.Login)
+  const handleClick =(destination: MainCardContent) => {
+    setCardContentAction(destination)
   }
+
   return (
     <>
       <div className={'title-font text-blue-950 font-bold text-2xl sm:text-5xl px-4 md:px-10'}>Welcome!</div>
@@ -22,9 +22,9 @@ export default function MainCard({setCardContentAction}: MainCardProps) {
         <br />
         <br />
         Each night, the villagers sleep uneasily as hidden werewolves stalk among them.</div>
-      <CustomButton onClick={handleClick} text={"Create Account"} />
+      <CustomButton onClick={() => handleClick(MainCardContent.Login)} text={"Login"} />
 
-      <Link href={'/docs'} className={'text-blue-950 title-font'}>Learn more</Link>
+      <CustomButton onClick={() => handleClick(MainCardContent.Signup)} text={"Sign up"} variant={CustomButtonVariants.Ghost} />
     </>
   )
 }
