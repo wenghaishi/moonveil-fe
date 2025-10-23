@@ -10,7 +10,7 @@ type LoginCardProps = {
 
 export default function LoginCard({ setCardContentAction }: LoginCardProps) {
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -23,24 +23,44 @@ export default function LoginCard({ setCardContentAction }: LoginCardProps) {
   const validate = () => {
     const newErrors: Record<string, string> = {};
 
-    if (!formData.username.trim())
-      newErrors.username = "Username is required.";
+    // ✅ Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Enter a valid email address.";
+    }
 
-    if (!formData.password)
+    // ✅ Password validation
+    if (!formData.password) {
       newErrors.password = "Password is required.";
-    else if (formData.password.length < 8)
+    } else if (formData.password.length < 8) {
       newErrors.password = "Password must be at least 8 characters.";
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     // ✅ Passed validation — perform login logic here
-    console.log("Login data:", formData);
+    try {
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const data = await res.json();
+      console.log("Response:", data);
+    } catch (err){
+      console.error("Login error:", err);
+    }
   };
 
   const changeToSignup = () => {
@@ -57,24 +77,24 @@ export default function LoginCard({ setCardContentAction }: LoginCardProps) {
         Login
       </div>
 
-      {/* Username */}
+      {/* Email */}
       <div className="w-full px-4">
         <label
-          htmlFor="username"
+          htmlFor="email"
           className="block mb-1 font-semibold text-gray-700 title-font"
         >
-          Username
+          Email
         </label>
         <input
-          type="text"
-          id="username"
-          name="username"
-          value={formData.username}
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
           onChange={handleChange}
           className="w-full px-4 py-2 rounded-lg border border-navy focus:outline-none"
         />
-        {errors.username && (
-          <p className="text-red-500 text-xs mt-1">{errors.username}</p>
+        {errors.email && (
+          <p className="text-red-500 text-xs mt-1">{errors.email}</p>
         )}
       </div>
 
